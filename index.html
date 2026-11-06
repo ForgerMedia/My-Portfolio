@@ -30,7 +30,6 @@
             <div>
                 <!-- Profile Picture & Name -->
                 <div class="flex items-center space-x-4 md:flex-col md:space-x-0 md:text-center">
-                    <!-- CHANGE YOUR PROFILE PHOTO LINK BELOW -->
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Jerwin Paguntalan" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-2 border-blue-500 shadow-md md:mb-4">
                     <div>
                         <h1 class="text-xl font-bold flex items-center justify-center gap-1.5">
@@ -41,18 +40,16 @@
                     </div>
                 </div>
 
-                <!-- Social Links & Theme Switcher -->
-                <div class="flex items-center justify-start md:justify-center gap-3 my-6">
-                    <!-- PASTE YOUR FACEBOOK LINK BELOW -->
-                    <a href=" https://www.facebook.com/xinpaguntalan/ " target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <!-- Social Links & FIXED Theme Switcher Button -->
+                <div class="flex items-center justify-start md:justify-center gap-2.5 my-6">
+                    <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="https://upwork.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork"><i class="fa-solid fa-briefcase text-sm"></i></a>
+                    <a href="mailto:your-email@example.com" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email"><i class="fa-solid fa-envelope text-sm"></i></a>
                     
-                    <!-- PASTE YOUR LINKEDIN OR UPWORK LINK BELOW -->
-                    <a href="*** PUT YOUR UPWORK OR LINKEDIN URL HERE ***" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork"><i class="fa-solid fa-briefcase"></i></a>
-                    
-                    <!-- PASTE YOUR EMAIL INSTEAD OF MAILTO BELOW -->
-                    <a href="mailto: jerwinpaguntalan@gmail.com " class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email Me"><i class="fa-solid fa-envelope"></i></a>
-                    
-                    <button id="theme-toggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Toggle Light/Dark Theme"><i class="fa-solid fa-moon"></i></button>
+                    <!-- VISIBLE & WORKING THEME TOGGLE BUTTON -->
+                    <button id="theme-toggle" class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center hover:scale-105 transition shadow-sm" title="Toggle Theme">
+                        <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
+                    </button>
                 </div>
 
                 <!-- Navigation Bar -->
@@ -81,8 +78,7 @@
                         Combining creative visual storytelling with 3 years of high-volume BPO customer support experience. Ready to streamline operations and create captivating visual content.
                     </p>
                 </div>
-                <!-- PASTE YOUR CONTACT EMAIL OR DRIVE LINK BELOW -->
-                <a href="mailto:jerwinpaguntalan@gmail.com " class="whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition shadow-sm">
+                <a href="mailto:your-email@example.com" class="whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition shadow-sm">
                     Get in touch <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </a>
             </div>
@@ -91,7 +87,6 @@
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar">
                 <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap px-2">Tools I Master</span>
                 <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">
-                    <!-- EDIT OR ADD YOUR TOOLS BELOW -->
                     <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro</span>
                     <span class="flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-purple-500"></i> After Effects / CapCut</span>
                     <span class="flex items-center gap-2"><i class="fa-solid fa-palette text-blue-500"></i> Photoshop & Canva</span>
@@ -103,7 +98,7 @@
             <!-- Bento Projects & Work Section -->
             <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 
-                <!-- Project Card 1: Video Editing Portfolio -->
+                <!-- Project Card 1: Video Editing (Opens In-Site Modal) -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -114,18 +109,17 @@
                         <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Short-form TikTok/Reels, YouTube edits, and promotional cuts.</p>
                     </div>
                     
-                    <!-- CLICKABLE CARD LINK TO YOUR GOOGLE DRIVE / YOUTUBE VIDEO LINK -->
-                    <a href="*** PASTE YOUR GOOGLE DRIVE OR YOUTUBE LINK FOR VIDEO EDITS HERE ***" target="_blank" class="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer block border border-slate-200 dark:border-slate-700">
-                        <!-- PASTE THUMBNAIL IMAGE URL BELOW -->
+                    <!-- BUTTON THAT OPENS VIDEO POPUP MODAL -->
+                    <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
                         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                         <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-2 text-center">
                             <div class="w-10 h-10 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg mb-1"><i class="fa-solid fa-play ml-0.5"></i></div>
-                            <span class="text-xs font-semibold">Click to View Videos</span>
+                            <span class="text-xs font-semibold">Watch Videos Here</span>
                         </div>
-                    </a>
+                    </button>
                 </div>
 
-                <!-- Project Card 2: Graphic Design Portfolio -->
+                <!-- Project Card 2: Graphic Design (Opens In-Site Modal) -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -136,15 +130,14 @@
                         <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Social media graphics, thumbnails, posters, and ad designs.</p>
                     </div>
                     
-                    <!-- CLICKABLE CARD LINK TO YOUR GOOGLE DRIVE / BEHANCE LINK -->
-                    <a href="*** PASTE YOUR GOOGLE DRIVE LINK FOR GRAPHIC DESIGN SAMPLES HERE ***" target="_blank" class="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer block border border-slate-200 dark:border-slate-700">
-                        <!-- PASTE THUMBNAIL IMAGE URL BELOW -->
+                    <!-- BUTTON THAT OPENS GRAPHICS POPUP MODAL -->
+                    <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
                         <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                         <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-2 text-center">
                             <div class="w-10 h-10 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg mb-1"><i class="fa-solid fa-images"></i></div>
-                            <span class="text-xs font-semibold">Click to View Designs</span>
+                            <span class="text-xs font-semibold">View Graphics Here</span>
                         </div>
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Card 3: Experience & Background -->
@@ -200,16 +193,14 @@
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider bg-pink-100 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400 px-3 py-1 rounded-full">Master Portfolio</span>
-                            <i class="fa-solid fa-folder-tree text-slate-400"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider bg-pink-100 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400 px-3 py-1 rounded-full">Let's Work</span>
+                            <i class="fa-solid fa-paper-plane text-slate-400"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Full Drive Portfolio</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Want to see all my raw files, video projects, graphics, and resume in one folder?</p>
+                        <h3 class="text-lg font-bold mb-2">Ready to Hire Me?</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get in touch directly for your next video editing, graphic design, or VA project.</p>
                     </div>
-                    
-                    <!-- PASTE YOUR GOOGLE DRIVE FOLDER URL HERE -->
-                    <a href="*** PASTE YOUR ALL-IN-ONE GOOGLE DRIVE LINK HERE ***" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition shadow-sm block">
-                        <i class="fa-brands fa-google-drive mr-2"></i> Open Master Google Drive Folder
+                    <a href="mailto:your-email@example.com" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition shadow-sm block">
+                        <i class="fa-solid fa-envelope mr-2"></i> Send Me an Email
                     </a>
                 </div>
 
@@ -218,10 +209,58 @@
         </div>
     </div>
 
-    <!-- Theme Switch Script -->
+    <!-- ========================================= -->
+    <!-- IN-SITE POPUP MODAL FOR VIDEOS -->
+    <!-- ========================================= -->
+    <div id="videoModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold">🎬 Video Editing Portfolio</h3>
+                <button onclick="closeModal('videoModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Watch my sample video edits right here:</p>
+            
+            <!-- VIDEO EMBED CONTAINER -->
+            <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+                <!-- Example YouTube Embed (Replace with your own video embed code or link) -->
+                <div class="rounded-2xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center relative">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Sample" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="text-xs text-slate-400 text-center">Tip: You can add more video boxes right here inside the code!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- IN-SITE POPUP MODAL FOR GRAPHICS -->
+    <!-- ========================================= -->
+    <div id="graphicsModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold">🎨 Graphic Design Showcase</h3>
+                <button onclick="closeModal('graphicsModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Browse my graphic design works right here:</p>
+            
+            <!-- GRAPHICS GRID CONTAINER -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-1">
+                <!-- Graphic Image Item 1 -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Design 1" class="w-full h-full object-cover">
+                </div>
+                <!-- Graphic Image Item 2 -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31243364d0?auto=format&fit=crop&w=600&q=80" alt="Design 2" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts for Theme Toggle & Modals -->
     <script>
+        // Theme Toggle Functionality
         const themeToggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = themeToggleBtn.querySelector('i');
+        const themeIcon = document.getElementById('theme-icon');
         
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -229,4 +268,26 @@
             themeIcon.classList.add('fa-sun');
         }
 
-        themeToggle
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.theme = 'light';
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Modal Popup Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
