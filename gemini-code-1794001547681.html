@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerwin Paguntalan — Portfolio</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col items-center justify-center p-4 md:p-6">
+
+    <!-- Main Bento Container -->
+    <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-4 gap-4">
+
+        <!-- Left Sidebar / Profile Card -->
+        <div class="md:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm">
+            <div>
+                <!-- Avatar & Name -->
+                <div class="flex items-center space-x-4 md:flex-col md:space-x-0 md:text-center">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Jerwin Paguntalan" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-2 border-blue-500 shadow-md md:mb-4">
+                    <div>
+                        <h1 class="text-xl font-bold flex items-center justify-center gap-1.5">
+                            Jerwin Paguntalan 
+                            <i class="fa-solid fa-circle-check text-blue-500 text-sm" title="Verified Professional"></i>
+                        </h1>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">@jerwinpaguntalan</p>
+                    </div>
+                </div>
+
+                <!-- Social Icons & Theme Toggle -->
+                <div class="flex items-center justify-start md:justify-center gap-3 my-6">
+                    <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://upwork.com" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork Profile"><i class="fa-solid fa-briefcase"></i></a>
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition"><i class="fa-solid fa-moon"></i></button>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="space-y-1">
+                    <a href="#home" class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-medium text-sm"><i class="fa-solid fa-house w-5"></i> Home</a>
+                    <a href="#projects" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-folder-open w-5"></i> Projects</a>
+                    <a href="#services" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-layer-group w-5"></i> Services</a>
+                    <a href="#about" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-user w-5"></i> About</a>
+                </nav>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="text-xs text-slate-400 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <p>© 2026 Jerwin Paguntalan</p>
+                <p class="mt-1">All rights reserved.</p>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="md:col-span-3 flex flex-col gap-4">
+
+            <!-- Hero Header Card -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Creative Visuals & Expert Support.</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-xl">
+                        Professional Video Editor, Graphic Designer, and Virtual Assistant with 3 years of high-volume BPO experience. I build engaging media and streamlined operational workflows.
+                    </p>
+                </div>
+                <a href="mailto:your-email@example.com" class="whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition shadow-sm">
+                    Get in touch <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Tools / Software Stack Bar -->
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar">
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap px-2">Tools I Use</span>
+                <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-purple-500"></i> After Effects</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-palette text-blue-500"></i> Photoshop & Canva</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-headset text-emerald-500"></i> Zendesk & CRM</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-google text-amber-500"></i> Google Workspace</span>
+                </div>
+            </div>
+
+            <!-- Bento Middle Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <!-- Projects Card -->
+                <div id="projects" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider bg-orange-100 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400 px-3 py-1 rounded-full">Portfolio</span>
+                            <i class="fa-solid fa-clapperboard text-slate-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Featured Edits & Designs</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Cinematic cuts, promotional branding, and dynamic social media assets.</p>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Editing Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg"><i class="fa-solid fa-play ml-0.5"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Card -->
+                <div id="about" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-3 py-1 rounded-full">About Me</span>
+                            <i class="fa-solid fa-user-gear text-slate-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Background & Skills</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Brought 3 years of rigorous BPO experience handling high-volume telco customer accounts, combined with sharp creative execution in video editing and graphic design.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-medium text-slate-500">
+                        <span>Based in the Philippines</span>
+                        <span class="text-blue-500 font-semibold">Available for Hire</span>
+                    </div>
+                </div>
+
+                <!-- Credentials / Experience Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400 px-3 py-1 rounded-full">Experience</span>
+                            <i class="fa-solid fa-award text-slate-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Professional Background</h3>
+                        <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                            <li class="flex items-center justify-between"><span>BPO Telco Support</span> <span class="font-semibold text-slate-700 dark:text-slate-200">3 Years</span></li>
+                            <li class="flex items-center justify-between"><span>Video Editing & Design</span> <span class="font-semibold text-slate-700 dark:text-slate-200">Freelance</span></li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">✓</div>
+                        <div class="text-xs">
+                            <p class="font-semibold text-slate-700 dark:text-slate-200">Client Communication</p>
+                            <p class="text-slate-400">High-volume service excellence</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Services Offered Bottom Bento Grid -->
+            <div id="services" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Services List Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 px-3 py-1 rounded-full">Services</span>
+                        <i class="fa-solid fa-cubes text-slate-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4">What I Offer</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-video text-blue-500"></i> Video Editing</span>
+                            <span class="text-xs text-slate-400">01</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-palette text-purple-500"></i> Graphic Design</span>
+                            <span class="text-xs text-slate-400">02</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-headset text-emerald-500"></i> Virtual Assistant & BPO Support</span>
+                            <span class="text-xs text-slate-400">03</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Testimonials Card -->
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider bg-pink-100 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400 px-3 py-1 rounded-full">Testimonials</span>
+                            <i class="fa-solid fa-comment-dots text-slate-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4">Client Feedback</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                                <p class="text-slate-600 dark:text-slate-300 italic mb-1">"Jerwin delivered exceptional video edits right on schedule. Highly professional communication!"</p>
+                                <p class="text-xs font-semibold text-slate-400">— International Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-2 text-xs text-slate-400 text-center">
+                        Ready to elevate your next project? Let's connect.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        // Check for saved theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.theme = 'light';
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>
