@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerwin Paguntalan — Portfolio</title>
+    <title>Jerwin Paguntalan — Video Editor, Graphic Designer & VA Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,19 +20,19 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col items-center justify-center p-4 md:p-6">
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 lg:p-8">
 
-    <!-- Main Bento Container -->
-    <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-4 gap-4">
+    <!-- Ultra-Wide Main Bento Container (Fits 27-inch monitors down to mobile) -->
+    <div class="max-w-[1550px] w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
 
-        <!-- Left Sidebar / Profile Card -->
-        <div class="md:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm">
+        <!-- Left Sidebar / Profile Card (1 Column on Large Screens) -->
+        <div class="lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm">
             <div>
                 <!-- Profile Picture & Name -->
-                <div class="flex items-center space-x-4 md:flex-col md:space-x-0 md:text-center">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Jerwin Paguntalan" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-2 border-blue-500 shadow-md md:mb-4">
+                <div class="flex items-center space-x-4 lg:flex-col lg:space-x-0 lg:text-center">
+                    <img src="480896763_2267957543584158_6172636885628865183_n.jpg" alt="Jerwin Paguntalan" class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover border-2 border-blue-500 shadow-md lg:mb-4">
                     <div>
-                        <h1 class="text-xl font-bold flex items-center justify-center gap-1.5">
+                        <h1 class="text-xl font-bold flex items-center justify-start lg:justify-center gap-1.5">
                             Jerwin Paguntalan 
                             <i class="fa-solid fa-circle-check text-blue-500 text-sm" title="Verified Professional"></i>
                         </h1>
@@ -40,13 +40,12 @@
                     </div>
                 </div>
 
-                <!-- Social Links & FIXED Theme Switcher Button -->
-                <div class="flex items-center justify-start md:justify-center gap-2.5 my-6">
-                    <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                    <a href="https://upwork.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork"><i class="fa-solid fa-briefcase text-sm"></i></a>
-                    <a href="mailto:your-email@example.com" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email"><i class="fa-solid fa-envelope text-sm"></i></a>
+                <!-- Social Links & Working Theme Switcher -->
+                <div class="flex items-center justify-start lg:justify-center gap-2.5 my-6">
+                    <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
+                    <a href="mailto:jerwinpaguntalan@gmail.com" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
                     
-                    <!-- VISIBLE & WORKING THEME TOGGLE BUTTON -->
                     <button id="theme-toggle" class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center hover:scale-105 transition shadow-sm" title="Toggle Theme">
                         <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
                     </button>
@@ -56,6 +55,7 @@
                 <nav class="space-y-1">
                     <a href="#projects" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-folder-open w-5"></i> Portfolio Work</a>
                     <a href="#services" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-layer-group w-5"></i> Services</a>
+                    <a href="#testimonials" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-star w-5"></i> Upwork Reviews</a>
                     <a href="#about" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-user w-5"></i> About & BPO</a>
                 </nav>
             </div>
@@ -67,18 +67,18 @@
             </div>
         </div>
 
-        <!-- Main Content Area -->
-        <div class="md:col-span-3 flex flex-col gap-4">
+        <!-- Main Content Area (4 Columns on Large Screens) -->
+        <div class="lg:col-span-4 flex flex-col gap-4 lg:gap-6">
 
             <!-- Hero Header Card -->
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Video Editor, Graphic Designer & Virtual Assistant.</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-xl">
-                        Combining creative visual storytelling with 3 years of high-volume BPO customer support experience. Ready to streamline operations and create captivating visual content.
+                    <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight mb-3">Video Editor, Graphic Designer & Virtual Assistant.</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl">
+                        Combining creative visual storytelling and high-performing YouTube SEO with 3 years of rigorous BPO customer support experience. Trusted by international clients on Upwork with 100% 5-star ratings.
                     </p>
                 </div>
-                <a href="mailto:your-email@example.com" class="whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition shadow-sm">
+                <a href="mailto:jerwinpaguntalan@gmail.com" class="whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition shadow-sm">
                     Get in touch <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </a>
             </div>
@@ -87,18 +87,18 @@
             <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar">
                 <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap px-2">Tools I Master</span>
                 <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-purple-500"></i> After Effects / CapCut</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro & After Effects</span>
                     <span class="flex items-center gap-2"><i class="fa-solid fa-palette text-blue-500"></i> Photoshop & Canva</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-amber-500"></i> YouTube SEO & Thumbnails</span>
                     <span class="flex items-center gap-2"><i class="fa-solid fa-headset text-emerald-500"></i> BPO CRM & Helpdesk</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-google text-amber-500"></i> Google Workspace</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-google text-purple-500"></i> Google Workspace</span>
                 </div>
             </div>
 
-            <!-- Bento Projects & Work Section -->
-            <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Bento Projects Grid (3 Columns) -->
+            <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
                 
-                <!-- Project Card 1: Video Editing (Opens In-Site Modal) -->
+                <!-- Project Card 1: Video Editing Modal Trigger -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -106,11 +106,9 @@
                             <i class="fa-solid fa-clapperboard text-slate-400"></i>
                         </div>
                         <h3 class="text-lg font-bold mb-2">Video Reels & Edits</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Short-form TikTok/Reels, YouTube edits, and promotional cuts.</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Cinematic cuts, fast-paced retention editing, and promos.</p>
                     </div>
-                    
-                    <!-- BUTTON THAT OPENS VIDEO POPUP MODAL -->
-                    <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
+                    <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-40 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
                         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                         <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-2 text-center">
                             <div class="w-10 h-10 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg mb-1"><i class="fa-solid fa-play ml-0.5"></i></div>
@@ -119,19 +117,17 @@
                     </button>
                 </div>
 
-                <!-- Project Card 2: Graphic Design (Opens In-Site Modal) -->
+                <!-- Project Card 2: Graphic Design Modal Trigger -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 px-3 py-1 rounded-full">Graphic Design</span>
                             <i class="fa-solid fa-palette text-slate-400"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Graphics & Branding</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Social media graphics, thumbnails, posters, and ad designs.</p>
+                        <h3 class="text-lg font-bold mb-2">Thumbnails & Branding</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">High-CTR YouTube thumbnails and striking digital graphics.</p>
                     </div>
-                    
-                    <!-- BUTTON THAT OPENS GRAPHICS POPUP MODAL -->
-                    <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-36 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
+                    <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-40 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
                         <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                         <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-2 text-center">
                             <div class="w-10 h-10 rounded-full bg-white/90 text-slate-900 flex items-center justify-center shadow-lg mb-1"><i class="fa-solid fa-images"></i></div>
@@ -149,22 +145,110 @@
                         </div>
                         <h3 class="text-lg font-bold mb-2">3 Years BPO Experience</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
-                            Proven track record handling high-volume telco customer service accounts, multi-tasking, email/chat support, and admin assistance.
+                            Expert in handling high-volume telco customer accounts, seamless client communication, problem-solving, and administrative support.
                         </p>
                     </div>
                     <div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">✓</div>
                         <div class="text-xs">
-                            <p class="font-semibold text-slate-700 dark:text-slate-200">Customer & Admin Expert</p>
-                            <p class="text-slate-400">Reliable Virtual Assistance</p>
+                            <p class="font-semibold text-slate-700 dark:text-slate-200">Customer Support Specialist</p>
+                            <p class="text-slate-400">Top-tier communication skills</p>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Services Offered Section -->
-            <div id="services" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Upwork Testimonials Section (2 Columns) -->
+            <div id="testimonials" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 lg:p-8 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 px-3 py-1 rounded-full">Upwork Feedbacks</span>
+                        <h3 class="text-2xl font-bold mt-2">100% 5-Star Client Reviews[cite: 6]</h3>
+                    </div>
+                    <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="text-sm font-semibold text-blue-500 hover:underline hidden sm:block">View Upwork Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
+                </div>
+
+                <!-- Testimonial Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[550px] overflow-y-auto pr-2">
+                    
+                    <!-- Alexander Riedel -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Alexander Riedel</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did an incredible job with my YouTube thumbnails and SEO! Since he revamped my thumbnails and optimized my videos, I've seen a significant improvement in my click-through rates, jumping from 4-5% to an impressive 10-12%!"[cite: 6]</p>
+                    </div>
+
+                    <!-- Henry Gorst -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Henry Gorst</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin may be the best hire I've made since starting on Upwork, he captured exactly what I wanted, edited it PERFECTLY & delivered exceptionally quickly."[cite: 6]</p>
+                    </div>
+
+                    <!-- Anna Dimitrius -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Anna Dimitrius</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin went above and beyond with delivering on this project. He is a very talented designer and his work is very original, he works fast and doesn't need a lot of explanation."[cite: 6]</p>
+                    </div>
+
+                    <!-- Jim Liao -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Jim Liao</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"It is clear upon working with him that Jerwin is a seasoned thumbnail editor. Besides that, he demonstrates a clear understanding of the collaborative process."[cite: 6]</p>
+                    </div>
+
+                    <!-- Mary Yoo -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Mary Yoo</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Really amazing freelancer! Always went above and beyond to deliver the highest-quality content. Highly recommended!!"[cite: 6]</p>
+                    </div>
+
+                    <!-- Hassan Shukor -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Hassan Shukor</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin has excellent attention for details. I appreciate his initiative taking and bringing new ideas. The flexibility he showed and openness for receiving feedback was very much appreciated."[cite: 6]</p>
+                    </div>
+
+                    <!-- Rafe Totengco -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Rafe Totengco</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin was quick to respond, professional and completed the job on time."[cite: 6]</p>
+                    </div>
+
+                    <!-- Collin White -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-sm">Collin White</span>
+                            <div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did everything I asked him for"[cite: 6]</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Services Offered Bottom Section -->
+            <div id="services" class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 
                 <!-- Services Card -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
@@ -175,11 +259,11 @@
                     <h3 class="text-lg font-bold mb-4">What I Can Do For You</h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
-                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-video text-blue-500"></i> Video Editing (Reels, YT, Ads)</span>
+                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-video text-blue-500"></i> Video Editing & YouTube Optimization</span>
                             <span class="text-xs text-slate-400">01</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
-                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-palette text-purple-500"></i> Graphic Design & Visual Marketing</span>
+                            <span class="text-sm font-medium flex items-center gap-3"><i class="fa-solid fa-palette text-purple-500"></i> Graphic Design & High-CTR Thumbnails</span>
                             <span class="text-xs text-slate-400">02</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
@@ -189,18 +273,18 @@
                     </div>
                 </div>
 
-                <!-- Call To Action & Links Card -->
+                <!-- Call To Action Card -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider bg-pink-100 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400 px-3 py-1 rounded-full">Let's Work</span>
+                            <span class="text-xs font-bold uppercase tracking-wider bg-pink-100 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400 px-3 py-1 rounded-full">Hire Me</span>
                             <i class="fa-solid fa-paper-plane text-slate-400"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Ready to Hire Me?</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Get in touch directly for your next video editing, graphic design, or VA project.</p>
+                        <h3 class="text-lg font-bold mb-2">Let's Elevate Your Brand</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Ready to boost your video engagement, get more views, or streamline operations?</p>
                     </div>
-                    <a href="mailto:your-email@example.com" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition shadow-sm block">
-                        <i class="fa-solid fa-envelope mr-2"></i> Send Me an Email
+                    <a href="mailto:jerwinpaguntalan@gmail.com" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-2xl text-sm transition shadow-sm block">
+                        <i class="fa-solid fa-envelope mr-2"></i> Email Me Directly
                     </a>
                 </div>
 
@@ -218,15 +302,12 @@
                 <h3 class="text-xl font-bold">🎬 Video Editing Portfolio</h3>
                 <button onclick="closeModal('videoModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Watch my sample video edits right here:</p>
-            
-            <!-- VIDEO EMBED CONTAINER -->
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Watch sample video edits right here:</p>
             <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
-                <!-- Example YouTube Embed (Replace with your own video embed code or link) -->
                 <div class="rounded-2xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center relative">
                     <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Sample" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <p class="text-xs text-slate-400 text-center">Tip: You can add more video boxes right here inside the code!</p>
+                <p class="text-xs text-slate-400 text-center">You can easily replace this video link anytime!</p>
             </div>
         </div>
     </div>
@@ -237,18 +318,14 @@
     <div id="graphicsModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold">🎨 Graphic Design Showcase</h3>
+                <h3 class="text-xl font-bold">🎨 Graphic Design & Thumbnails</h3>
                 <button onclick="closeModal('graphicsModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Browse my graphic design works right here:</p>
-            
-            <!-- GRAPHICS GRID CONTAINER -->
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Browse graphic design works right here:</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto pr-1">
-                <!-- Graphic Image Item 1 -->
                 <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 aspect-square">
                     <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Design 1" class="w-full h-full object-cover">
                 </div>
-                <!-- Graphic Image Item 2 -->
                 <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 aspect-square">
                     <img src="https://images.unsplash.com/photo-1542744094-3a31243364d0?auto=format&fit=crop&w=600&q=80" alt="Design 2" class="w-full h-full object-cover">
                 </div>
