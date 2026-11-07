@@ -19,18 +19,50 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Smooth Glass & Animation Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.15);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.8); }
+        }
+        .animate-glow {
+            animation: pulseGlow 3s infinite;
+        }
+        /* Fade-in scroll helper */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 lg:p-8">
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-500 min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 lg:p-8">
 
     <!-- Ultra-Wide Responsive Main Bento Grid -->
     <div class="max-w-[1550px] w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
 
         <!-- Left Sidebar / Profile & Direct Contact Card -->
-        <div class="lg:col-span-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm">
+        <div class="lg:col-span-1 glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm reveal active">
             <div>
                 <!-- Profile Picture & Name -->
                 <div class="flex items-center space-x-4 lg:flex-col lg:space-x-0 lg:text-center">
-                    <img src="jerwin-casual-profile.png.jfif" alt="Jerwin Paguntalan" class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover border-2 border-blue-500 shadow-md lg:mb-4">
+                    <img src="jerwin-casual-profile.png.jfif" alt="Jerwin Paguntalan" class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover border-2 border-blue-500 shadow-md lg:mb-4 transition-transform duration-500 hover:scale-105">
                     <div>
                         <h1 class="text-xl font-bold flex items-center justify-start lg:justify-center gap-1.5">
                             Jerwin Paguntalan 
@@ -42,20 +74,20 @@
 
                 <!-- Social Links & Theme Switcher -->
                 <div class="flex items-center justify-start lg:justify-center gap-2.5 my-6">
-                    <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                    <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
+                    <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition transform hover:scale-110" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition transform hover:scale-110" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition transform hover:scale-110" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
                     
-                    <button id="theme-toggle" class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center hover:scale-105 transition shadow-sm" title="Toggle Theme">
+                    <button id="theme-toggle" class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center hover:scale-110 transition shadow-sm" title="Toggle Theme">
                         <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
                     </button>
                 </div>
 
                 <!-- Quick Navigation -->
                 <nav class="space-y-1">
-                    <a href="#projects" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-clapperboard text-red-500 w-5"></i> Video & Graphics</a>
-                    <a href="#testimonials" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-star text-amber-500 w-5"></i> 5-Star Reviews</a>
-                    <a href="#about" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm transition"><i class="fa-solid fa-user w-5"></i> Background</a>
+                    <a href="#projects" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 text-sm transition"><i class="fa-solid fa-clapperboard text-red-500 w-5"></i> Video & Graphics</a>
+                    <a href="#testimonials" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 text-sm transition"><i class="fa-solid fa-star text-amber-500 w-5"></i> 5-Star Reviews</a>
+                    <a href="#about" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 text-sm transition"><i class="fa-solid fa-user w-5"></i> Background</a>
                 </nav>
             </div>
 
@@ -67,13 +99,13 @@
             </div>
         </div>
 
-        <!-- Main Content Area: Video Editing & Graphics First -->
+        <!-- Main Content Area -->
         <div class="lg:col-span-4 flex flex-col gap-4 lg:gap-6">
 
-            <!-- HERO HEADER WITH GUARANTEED WORKING EMAIL BUTTON -->
-            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white rounded-3xl p-6 lg:p-10 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <!-- HERO HEADER WITH GLOWING CTA -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white rounded-3xl p-6 lg:p-10 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal">
                 <div class="space-y-3 max-w-2xl">
-                    <span class="bg-red-500/20 text-red-300 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block">
+                    <span class="bg-red-500/20 text-red-300 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block animate-pulse">
                         Professional Video Editor & Thumbnail Designer
                     </span>
                     <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
@@ -84,14 +116,14 @@
                     </p>
                 </div>
                 
-                <!-- GUARANTEED WORKING HIRE ME BUTTON (OPENS GMAIL / EMAIL CLIENT) -->
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-2xl font-semibold text-sm transition shadow-lg flex items-center gap-2 cursor-pointer">
+                <!-- Animated Glowing Hire Me Button -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 rounded-2xl font-bold text-sm transition transform hover:scale-105 animate-glow flex items-center gap-2 cursor-pointer shadow-lg">
                     <i class="fa-solid fa-paper-plane"></i> Hire Me Directly
                 </a>
             </div>
 
             <!-- Software & Tools Stack Bar -->
-            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar">
+            <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar reveal">
                 <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap px-2">Creative Stack</span>
                 <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">
                     <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro & After Effects</span>
@@ -105,7 +137,7 @@
             <div id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 
                 <!-- Video Editing Card -->
-                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400 px-3 py-1 rounded-full">Core Service 01</span>
@@ -114,17 +146,17 @@
                         <h3 class="text-xl font-bold mb-2">Video Editing & Reels</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Cinematic cuts, short-form TikToks/Reels, YouTube videos, and dynamic promotional edits engineered for high viewer retention.</p>
                     </div>
-                    <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-2 text-center">
-                            <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg mb-1.5"><i class="fa-solid fa-play ml-0.5"></i></div>
+                    <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
+                            <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg mb-1.5 transform group-hover:scale-110 transition"><i class="fa-solid fa-play ml-0.5"></i></div>
                             <span class="text-xs font-bold tracking-wide uppercase">Watch Video Portfolio</span>
                         </div>
                     </button>
                 </div>
 
                 <!-- Graphic Design & Thumbnails Card -->
-                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 px-3 py-1 rounded-full">Core Service 02</span>
@@ -133,10 +165,10 @@
                         <h3 class="text-xl font-bold mb-2">Graphic Design & Thumbnails</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">High-CTR YouTube thumbnails, digital branding, social media graphics, and original marketing assets that drive clicks.</p>
                     </div>
-                    <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-2 text-center">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-lg mb-1.5"><i class="fa-solid fa-images"></i></div>
+                    <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
+                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-lg mb-1.5 transform group-hover:scale-110 transition"><i class="fa-solid fa-images"></i></div>
                             <span class="text-xs font-bold tracking-wide uppercase">View Graphic Showcase</span>
                         </div>
                     </button>
@@ -145,7 +177,7 @@
             </div>
 
             <!-- Upwork Testimonials Wall -->
-            <div id="testimonials" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 lg:p-8 shadow-sm">
+            <div id="testimonials" class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 lg:p-8 shadow-sm reveal">
                 <div class="flex items-center justify-between mb-6">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 px-3 py-1 rounded-full">Client Feedback</span>
@@ -155,19 +187,19 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2">
-                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Alexander Riedel</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
                         <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did an incredible job with my YouTube thumbnails and SEO! CTR jumped from 4-5% to an impressive 10-12%!"</p>
                     </div>
-                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Henry Gorst</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
                         <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin may be the best hire I've made since starting on Upwork, he captured exactly what I wanted, edited it PERFECTLY & delivered exceptionally quickly."</p>
                     </div>
-                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Anna Dimitrius</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
                         <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin went above and beyond with delivering on this project. He is a very talented designer and his work is very original."</p>
                     </div>
-                    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Jim Liao</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
                         <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"It is clear upon working with him that Jerwin is a seasoned thumbnail editor with a clear understanding of the collaborative process."</p>
                     </div>
@@ -175,7 +207,7 @@
             </div>
 
             <!-- Background / BPO Section -->
-            <div id="about" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
+            <div id="about" class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm reveal">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-3 py-1 rounded-full">Bonus Skillset</span>
                     <i class="fa-solid fa-headset text-slate-400"></i>
@@ -189,9 +221,9 @@
         </div>
     </div>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative">
+    <!-- Video Modal with Smooth Scale Animation -->
+    <div id="videoModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative transform scale-95 transition-transform duration-300" id="videoModalBox">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-bold">🎬 Video Editing Portfolio</h3>
                 <button onclick="closeModal('videoModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
@@ -202,9 +234,9 @@
         </div>
     </div>
 
-    <!-- Graphics Modal -->
-    <div id="graphicsModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative">
+    <!-- Graphics Modal with Smooth Scale Animation -->
+    <div id="graphicsModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative transform scale-95 transition-transform duration-300" id="graphicsModalBox">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-bold">🎨 Graphic Design & Thumbnails</h3>
                 <button onclick="closeModal('graphicsModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
@@ -220,8 +252,9 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Animation & Interactive Scripts -->
     <script>
+        // Theme Toggle Functionality
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         
@@ -244,12 +277,35 @@
             }
         });
 
+        // Modal Open/Close with Smooth Scaling
         function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
+            const modal = document.getElementById(modalId);
+            const box = modal.querySelector('div > div').parentElement.querySelector('div:nth-child(1)') || modal.querySelector('.relative');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+            }, 10);
         }
+
         function closeModal(modalId) {
             document.getElementById(modalId).classList.add('hidden');
         }
+
+        // Scroll Reveal Animation Trigger
+        window.addEventListener('scroll', revealOnScroll);
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        // Trigger once on load
+        revealOnScroll();
     </script>
 </body>
 </html>
