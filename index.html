@@ -150,7 +150,7 @@
                 </div>
             </div>
 
-            <!-- Right: Theme Toggle, Hover AI FAQ Trigger, Hire Button -->
+            <!-- Right: Theme Toggle, Menu Options, AI FAQ Popover, Hire Button -->
             <div class="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
                 <!-- Theme Switcher with Label -->
                 <button id="theme-toggle" class="py-2 px-3 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center gap-2 hover:scale-105 transition shadow-sm text-xs font-semibold cursor-pointer">
@@ -158,18 +158,25 @@
                     <span id="theme-text">Dark Mode</span>
                 </button>
 
-                <!-- Compact Hover-Activated AI FAQ Dropdown Trigger -->
+                <!-- Other Menu Options Restored -->
+                <nav class="hidden sm:flex items-center gap-1 text-xs font-semibold">
+                    <a href="#projects" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Portfolio</a>
+                    <a href="#testimonials" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Reviews</a>
+                    <a href="#about" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Background</a>
+                </nav>
+
+                <!-- Hover-Activated AI FAQ Popover (Fully Viewable & Unclipped) -->
                 <div class="relative group">
                     <button class="py-2 px-3 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer">
                         <i class="fa-solid fa-robot"></i> Ask AI FAQ <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </button>
-                    <!-- Hover Popover Drawer -->
-                    <div class="absolute right-0 mt-2 w-72 p-4 glass-card border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 space-y-2.5 text-left">
-                        <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Common Client Questions</p>
-                        <button onclick="askAiQuestion('turnaround')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-blue-500 hover:text-white transition">⚡ What is your turnaround time?</button>
-                        <button onclick="askAiQuestion('software')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-blue-500 hover:text-white transition">💻 What software do you use?</button>
-                        <button onclick="askAiQuestion('bpo')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-blue-500 hover:text-white transition">🎧 Tell me about your BPO/VA experience</button>
-                        <button onclick="askAiQuestion('rates')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-blue-500 hover:text-white transition">💰 What are your rates or terms?</button>
+                    <!-- Popover Drawer with Proper Positioning & Spacing -->
+                    <div class="absolute right-0 top-full mt-3 w-80 p-4 glass-card border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 space-y-2.5 text-left">
+                        <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Common Client Questions</p>
+                        <button onclick="askAiQuestion('turnaround')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition flex items-center justify-between"><span>⚡ What is your turnaround time?</span> <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        <button onclick="askAiQuestion('software')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition flex items-center justify-between"><span>💻 What software do you use?</span> <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        <button onclick="askAiQuestion('bpo')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition flex items-center justify-between"><span>🎧 Tell me about your BPO/VA experience</span> <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        <button onclick="askAiQuestion('rates')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition flex items-center justify-between"><span>💰 What are your rates or terms?</span> <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
                     </div>
                 </div>
 
@@ -181,7 +188,7 @@
 
         </header>
 
-        <!-- AI Response Popover Box (Appears when chip selected) -->
+        <!-- AI Response Popover Box -->
         <div id="ai-response-box" class="glass-card border border-blue-500/30 rounded-2xl p-4 text-xs sm:text-sm text-slate-700 dark:text-slate-200 hidden leading-relaxed reveal active">
             <div class="flex items-center justify-between mb-1">
                 <div class="flex items-center gap-2 font-bold text-blue-600 dark:text-blue-400">
