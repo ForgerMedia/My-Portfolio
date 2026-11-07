@@ -149,7 +149,7 @@
                 </div>
             </div>
 
-            <!-- Right: Theme Toggle, Menu Options, Hover AI FAQ Popover, Hire Button -->
+            <!-- Right: Theme Toggle, Menu Options, Click-Toggle AI FAQ Dropdown, Hire Button -->
             <div class="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
                 <!-- Theme Switcher with Label -->
                 <button id="theme-toggle" class="py-2 px-3 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center gap-2 hover:scale-105 transition shadow-sm text-xs font-semibold cursor-pointer">
@@ -164,13 +164,14 @@
                     <a href="#about" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Background</a>
                 </nav>
 
-                <!-- Hover-Activated AI FAQ Popover Widget (Fully Integrated & Unclipped) -->
-                <div class="relative group">
-                    <button class="py-2 px-3 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer">
-                        <i class="fa-solid fa-robot"></i> Ask AI FAQ <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                <!-- Click-Toggle AI FAQ Dropdown Widget (Zero Disappearing Issues) -->
+                <div class="relative">
+                    <button onclick="toggleAiDropdown()" class="py-2 px-3 rounded-xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-600 dark:text-blue-400 flex items-center gap-1.5 text-xs font-semibold transition cursor-pointer">
+                        <i class="fa-solid fa-robot"></i> Ask AI FAQ <i class="fa-solid fa-chevron-down text-[10px]" id="ai-chevron"></i>
                     </button>
-                    <!-- Popover Drawer containing both quick question chips and custom typing input -->
-                    <div class="absolute right-0 top-full mt-2 w-80 sm:w-96 p-4 glass-card border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 space-y-3 text-left">
+                    
+                    <!-- Dropdown Panel (Stays open until clicked closed or outside) -->
+                    <div id="ai-dropdown-panel" class="absolute right-0 top-full mt-3 w-80 sm:w-96 p-4 glass-card border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl hidden z-50 space-y-3 text-left">
                         <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
                             <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-1.5"><i class="fa-solid fa-brain"></i> AI Assistant</span>
                             <span class="text-[10px] text-emerald-500 font-semibold">Online 24/7</span>
@@ -178,20 +179,20 @@
                         
                         <!-- Custom Search / Type Input -->
                         <div class="relative">
-                            <input type="text" id="popover-ai-input" onkeypress="handlePopoverAiKey(event)" placeholder="Type any question (e.g. software, turnaround)..." class="w-full py-2 pl-3 pr-8 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:border-blue-500">
-                            <button onclick="executePopoverAiSearch()" class="absolute right-2 top-2 text-blue-600 dark:text-blue-400 text-xs hover:scale-110 transition"><i class="fa-solid fa-paper-plane"></i></button>
+                            <input type="text" id="dropdown-ai-input" onkeypress="handleDropdownAiKey(event)" placeholder="Type any question (e.g. software, turnaround)..." class="w-full py-2.5 pl-3 pr-8 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:border-blue-500">
+                            <button onclick="executeDropdownAiSearch()" class="absolute right-2.5 top-2.5 text-blue-600 dark:text-blue-400 text-xs hover:scale-110 transition"><i class="fa-solid fa-paper-plane"></i></button>
                         </div>
 
                         <!-- Common Question Chips -->
-                        <div class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
-                            <button onclick="askPopoverAi('turnaround')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">⚡ What is your turnaround time?</button>
-                            <button onclick="askPopoverAi('software')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">💻 What software do you use?</button>
-                            <button onclick="askPopoverAi('bpo')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">🎧 Tell me about your BPO/VA experience</button>
-                            <button onclick="askPopoverAi('rates')" class="w-full text-left text-xs p-2 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">💰 What are your rates or terms?</button>
+                        <div class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+                            <button onclick="askDropdownAi('turnaround')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">⚡ What is your turnaround time?</button>
+                            <button onclick="askDropdownAi('software')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">💻 What software do you use?</button>
+                            <button onclick="askDropdownAi('bpo')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">🎧 Tell me about your BPO/VA experience</button>
+                            <button onclick="askDropdownAi('rates')" class="w-full text-left text-xs p-2.5 rounded-xl bg-slate-100/80 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition">💰 What are your rates or terms?</button>
                         </div>
 
                         <!-- AI Answer Output Box -->
-                        <div id="popover-ai-response" class="p-2.5 rounded-xl bg-blue-50/90 dark:bg-blue-950/60 border border-blue-500/30 text-xs text-slate-700 dark:text-slate-200 hidden leading-relaxed"></div>
+                        <div id="dropdown-ai-response" class="p-3 rounded-xl bg-blue-50/90 dark:bg-blue-950/60 border border-blue-500/30 text-xs text-slate-700 dark:text-slate-200 hidden leading-relaxed"></div>
                     </div>
                 </div>
 
@@ -428,7 +429,7 @@
         setInterval(updateLocalTime, 1000);
         updateLocalTime();
 
-        // 2. AI Knowledge Base Engine (Answers directly right on the page)
+        // 2. AI Knowledge Base Engine (Click-Toggle & Stable Typing)
         const knowledgeBase = [
             { keywords: ['turnaround', 'fast', 'time', 'speed', 'delivery', 'hours', 'days'], answer: "Jerwin typically delivers projects within 24 to 48 hours depending on scope, ensuring quick turnarounds without sacrificing quality (backed by 100% 5-star review ratings on Upwork)." },
             { keywords: ['software', 'tool', 'premiere', 'after effects', 'photoshop', 'canva', 'edit'], answer: "Jerwin's core creative stack includes Adobe Premiere Pro & After Effects for high-retention video editing, alongside Photoshop & Canva for high-CTR thumbnail design and visual branding." },
@@ -436,24 +437,38 @@
             { keywords: ['rate', 'price', 'cost', 'budget', 'hire', 'term', 'payment'], answer: "Jerwin operates with flexible project terms and direct contracts. Rates vary depending on whether you need video editing, high-CTR thumbnails, or virtual assistant services." }
         ];
 
-        function askPopoverAi(topic) {
+        function toggleAiDropdown() {
+            const panel = document.getElementById('ai-dropdown-panel');
+            panel.classList.toggle('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(e) {
+            const container = document.getElementById('ai-dropdown-panel');
+            const btn = document.querySelector('button[onclick="toggleAiDropdown()"]');
+            if (container && !container.contains(e.target) && !btn.contains(e.target)) {
+                container.classList.add('hidden');
+            }
+        });
+
+        function askDropdownAi(topic) {
             let response = "";
             if (topic === 'turnaround') response = knowledgeBase[0].answer;
             else if (topic === 'software') response = knowledgeBase[1].answer;
             else if (topic === 'bpo') response = knowledgeBase[2].answer;
             else if (topic === 'rates') response = knowledgeBase[3].answer;
             
-            showPopoverAiOutput(response);
+            showDropdownAiOutput(response);
         }
 
-        function handlePopoverAiKey(e) {
+        function handleDropdownAiKey(e) {
             if (e.key === 'Enter') {
-                executePopoverAiSearch();
+                executeDropdownAiSearch();
             }
         }
 
-        function executePopoverAiSearch() {
-            const query = document.getElementById('popover-ai-input').value.toLowerCase().trim();
+        function executeDropdownAiSearch() {
+            const query = document.getElementById('dropdown-ai-input').value.toLowerCase().trim();
             if (!query) return;
 
             let matchedAnswer = "Jerwin is a professional freelance video editor, graphic designer, and virtual assistant with 100% 5-star ratings on Upwork. He specializes in high-retention video editing and high-CTR thumbnails that boost views from 4% to 12%!";
@@ -464,11 +479,11 @@
                     break;
                 }
             }
-            showPopoverAiOutput(matchedAnswer);
+            showDropdownAiOutput(matchedAnswer);
         }
 
-        function showPopoverAiOutput(text) {
-            const box = document.getElementById('popover-ai-response');
+        function showDropdownAiOutput(text) {
+            const box = document.getElementById('dropdown-ai-response');
             box.textContent = text;
             box.classList.remove('hidden');
         }
