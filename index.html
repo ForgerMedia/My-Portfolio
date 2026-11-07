@@ -22,7 +22,7 @@
 </head>
 <body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 lg:p-8">
 
-    <!-- Ultra-Wide Responsive Main Bento Grid (Fits 27-inch monitors down to mobile) -->
+    <!-- Ultra-Wide Responsive Main Bento Grid -->
     <div class="max-w-[1550px] w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
 
         <!-- Left Sidebar / Profile & Direct Contact Card -->
@@ -44,7 +44,7 @@
                 <div class="flex items-center justify-start lg:justify-center gap-2.5 my-6">
                     <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
                     <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
-                    <a href="mailto:jerwinpaguntalan@gmail.com" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
                     
                     <button id="theme-toggle" class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center hover:scale-105 transition shadow-sm" title="Toggle Theme">
                         <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
@@ -70,7 +70,7 @@
         <!-- Main Content Area: Video Editing & Graphics First -->
         <div class="lg:col-span-4 flex flex-col gap-4 lg:gap-6">
 
-            <!-- HERO HEADER: FOCUSED ON VIDEO EDITING & GRAPHICS -->
+            <!-- HERO HEADER WITH GUARANTEED WORKING EMAIL BUTTON -->
             <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white rounded-3xl p-6 lg:p-10 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div class="space-y-3 max-w-2xl">
                     <span class="bg-red-500/20 text-red-300 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block">
@@ -80,11 +80,13 @@
                         Crafting High-Retention Videos & High-CTR Thumbnails That Convert.
                     </h2>
                     <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                        Specializing in fast-paced editing, visual storytelling, and YouTube optimization that boosts viewer engagement and CTR from 4% to 12%[cite: 6]. Backed by 100% 5-star ratings from international clients[cite: 6].
+                        Specializing in fast-paced editing, visual storytelling, and YouTube optimization that boosts viewer engagement and CTR from 4% to 12%. Backed by 100% 5-star ratings from international clients.
                     </p>
                 </div>
-                <a href="mailto:jerwinpaguntalan@gmail.com?subject=New%20Project%20Inquiry%20from%20Portfolio" class="whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-2xl font-semibold text-sm transition shadow-lg flex items-center gap-2">
-                    <i class="fa-solid fa-envelope"></i> Hire Me Directly
+                
+                <!-- GUARANTEED WORKING HIRE ME BUTTON (OPENS GMAIL / EMAIL CLIENT) -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-2xl font-semibold text-sm transition shadow-lg flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-paper-plane"></i> Hire Me Directly
                 </a>
             </div>
 
@@ -99,7 +101,7 @@
                 </div>
             </div>
 
-            <!-- Bento Projects Grid (Video Editing & Graphics Front and Center) -->
+            <!-- Bento Projects Grid -->
             <div id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 
                 <!-- Video Editing Card -->
@@ -129,7 +131,7 @@
                             <i class="fa-solid fa-palette text-purple-500"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Graphic Design & Thumbnails</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">High-CTR YouTube thumbnails, digital branding, social media graphics, and original marketing assets that drive clicks[cite: 6].</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">High-CTR YouTube thumbnails, digital branding, social media graphics, and original marketing assets that drive clicks.</p>
                     </div>
                     <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700">
                         <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
@@ -147,7 +149,7 @@
                 <div class="flex items-center justify-between mb-6">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 px-3 py-1 rounded-full">Client Feedback</span>
-                        <h3 class="text-2xl font-bold mt-2">100% 5-Star Upwork Reviews[cite: 6]</h3>
+                        <h3 class="text-2xl font-bold mt-2">100% 5-Star Upwork Reviews</h3>
                     </div>
                     <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="text-sm font-semibold text-blue-500 hover:underline hidden sm:block">View Upwork Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
                 </div>
@@ -155,24 +157,24 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2">
                     <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Alexander Riedel</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did an incredible job with my YouTube thumbnails and SEO! CTR jumped from 4-5% to an impressive 10-12%!"[cite: 6]</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did an incredible job with my YouTube thumbnails and SEO! CTR jumped from 4-5% to an impressive 10-12%!"</p>
                     </div>
                     <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Henry Gorst</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin may be the best hire I've made since starting on Upwork, he captured exactly what I wanted, edited it PERFECTLY & delivered exceptionally quickly."[cite: 6]</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin may be the best hire I've made since starting on Upwork, he captured exactly what I wanted, edited it PERFECTLY & delivered exceptionally quickly."</p>
                     </div>
                     <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Anna Dimitrius</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin went above and beyond with delivering on this project. He is a very talented designer and his work is very original."[cite: 6]</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin went above and beyond with delivering on this project. He is a very talented designer and his work is very original."</p>
                     </div>
                     <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Jim Liao</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"It is clear upon working with him that Jerwin is a seasoned thumbnail editor with a clear understanding of the collaborative process."[cite: 6]</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"It is clear upon working with him that Jerwin is a seasoned thumbnail editor with a clear understanding of the collaborative process."</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Background / BPO as a Bonus Section -->
+            <!-- Background / BPO Section -->
             <div id="about" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-3 py-1 rounded-full">Bonus Skillset</span>
@@ -180,7 +182,7 @@
                 </div>
                 <h3 class="text-lg font-bold mb-2">3 Years BPO Experience & Virtual Assistance</h3>
                 <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                    While video editing and graphic design are my core focus, my 3 years of high-volume BPO customer support experience[cite: 6] equips me with exceptional communication, quick turnaround times, problem-solving, and administrative reliability when working with international teams.
+                    While video editing and graphic design are my core focus, my 3 years of high-volume BPO customer support experience equips me with exceptional communication, quick turnaround times, problem-solving, and administrative reliability when working with international teams.
                 </p>
             </div>
 
