@@ -20,26 +20,64 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom Smooth Glass & Animation Utilities */
+        /* Smooth Interactive Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Custom Smooth Glass & 3D Tilt Utilities */
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
         .dark .glass-card {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.75);
         }
         .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.2);
         }
+
+        /* Mouse Spotlight Glow Overlay */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: var(--mouse-y, 50%);
+            left: var(--mouse-x, 50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            z-index: 1;
+        }
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
         @keyframes pulseGlow {
             0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.4); }
-            50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.8); }
+            50% { box-shadow: 0 0 30px rgba(37, 99, 235, 0.8); }
         }
         .animate-glow {
             animation: pulseGlow 3s infinite;
         }
+
         /* Fade-in scroll helper */
         .reveal {
             opacity: 0;
@@ -52,13 +90,16 @@
         }
     </style>
 </head>
-<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-500 min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 lg:p-8">
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-500 min-h-screen flex flex-col items-center justify-start p-3 sm:p-6 lg:p-8 relative overflow-x-hidden">
+
+    <!-- Interactive Subtle Motion Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
     <!-- Ultra-Wide Responsive Main Bento Grid -->
-    <div class="max-w-[1550px] w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
+    <div class="max-w-[1550px] w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 z-10 relative">
 
         <!-- Left Sidebar / Profile & Direct Contact Card -->
-        <div class="lg:col-span-1 glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between shadow-sm reveal active">
+        <div class="lg:col-span-1 glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 flex flex-col justify-between shadow-sm reveal active">
             <div>
                 <!-- Profile Picture & Name -->
                 <div class="flex items-center space-x-4 lg:flex-col lg:space-x-0 lg:text-center">
@@ -72,14 +113,18 @@
                     </div>
                 </div>
 
-                <!-- Social Links & Theme Switcher -->
-                <div class="flex items-center justify-start lg:justify-center gap-2.5 my-6">
-                    <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition transform hover:scale-110" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                    <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition transform hover:scale-110" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition transform hover:scale-110" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
+                <!-- Social Links & Labeled Theme Switcher -->
+                <div class="my-6 space-y-3">
+                    <div class="flex items-center justify-start lg:justify-center gap-2.5">
+                        <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition transform hover:scale-110" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition transform hover:scale-110" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition transform hover:scale-110" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
+                    </div>
                     
-                    <button id="theme-toggle" class="w-9 h-9 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center justify-center hover:scale-110 transition shadow-sm" title="Toggle Theme">
+                    <!-- Labeled Theme Toggle Switch -->
+                    <button id="theme-toggle" class="w-full py-2.5 px-4 rounded-xl bg-blue-50 dark:bg-slate-800/80 text-blue-600 dark:text-amber-400 flex items-center justify-center gap-2 hover:scale-[1.02] transition shadow-sm text-xs font-semibold" title="Toggle Theme">
                         <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
+                        <span id="theme-text">Dark Mode</span>
                     </button>
                 </div>
 
@@ -103,8 +148,8 @@
         <div class="lg:col-span-4 flex flex-col gap-4 lg:gap-6">
 
             <!-- HERO HEADER WITH GLOWING CTA -->
-            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white rounded-3xl p-6 lg:p-10 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal">
-                <div class="space-y-3 max-w-2xl">
+            <div class="glass-card spotlight-card bg-gradient-to-br from-slate-900/90 via-slate-900/95 to-blue-950/90 text-white rounded-3xl p-6 lg:p-10 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal">
+                <div class="space-y-3 max-w-2xl relative z-10">
                     <span class="bg-red-500/20 text-red-300 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block animate-pulse">
                         Professional Video Editor & Thumbnail Designer
                     </span>
@@ -117,13 +162,13 @@
                 </div>
                 
                 <!-- Animated Glowing Hire Me Button -->
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 rounded-2xl font-bold text-sm transition transform hover:scale-105 animate-glow flex items-center gap-2 cursor-pointer shadow-lg">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="relative z-10 whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 rounded-2xl font-bold text-sm transition transform hover:scale-105 animate-glow flex items-center gap-2 cursor-pointer shadow-lg">
                     <i class="fa-solid fa-paper-plane"></i> Hire Me Directly
                 </a>
             </div>
 
             <!-- Software & Tools Stack Bar -->
-            <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar reveal">
+            <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar reveal">
                 <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap px-2">Creative Stack</span>
                 <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">
                     <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro & After Effects</span>
@@ -137,7 +182,7 @@
             <div id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 
                 <!-- Video Editing Card -->
-                <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
+                <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400 px-3 py-1 rounded-full">Core Service 01</span>
@@ -156,7 +201,7 @@
                 </div>
 
                 <!-- Graphic Design & Thumbnails Card -->
-                <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
+                <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 px-3 py-1 rounded-full">Core Service 02</span>
@@ -177,7 +222,7 @@
             </div>
 
             <!-- Upwork Testimonials Wall -->
-            <div id="testimonials" class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 lg:p-8 shadow-sm reveal">
+            <div id="testimonials" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 lg:p-8 shadow-sm reveal">
                 <div class="flex items-center justify-between mb-6">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 px-3 py-1 rounded-full">Client Feedback</span>
@@ -207,7 +252,7 @@
             </div>
 
             <!-- Background / BPO Section -->
-            <div id="about" class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm reveal">
+            <div id="about" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm reveal">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-3 py-1 rounded-full">Bonus Skillset</span>
                     <i class="fa-solid fa-headset text-slate-400"></i>
@@ -254,33 +299,43 @@
 
     <!-- Animation & Interactive Scripts -->
     <script>
-        // Theme Toggle Functionality
+        // 1. Theme Toggle Functionality with Labeled State Switch
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
         
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+        function updateThemeUI(isDark) {
+            if (isDark) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeText.textContent = 'Dark Mode';
+            }
         }
+
+        const initialDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (initialDark) {
+            document.documentElement.classList.add('dark');
+        }
+        updateThemeUI(initialDark);
 
         themeToggleBtn.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
-            if (document.documentElement.classList.contains('dark')) {
+            const isDarkNow = document.documentElement.classList.contains('dark');
+            if (isDarkNow) {
                 localStorage.theme = 'dark';
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
             } else {
                 localStorage.theme = 'light';
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
             }
+            updateThemeUI(isDarkNow);
         });
 
-        // Modal Open/Close with Smooth Scaling
+        // 2. Modal Open/Close
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
-            const box = modal.querySelector('div > div').parentElement.querySelector('div:nth-child(1)') || modal.querySelector('.relative');
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.add('opacity-100');
@@ -291,7 +346,7 @@
             document.getElementById(modalId).classList.add('hidden');
         }
 
-        // Scroll Reveal Animation Trigger
+        // 3. Scroll Reveal Animation Trigger
         window.addEventListener('scroll', revealOnScroll);
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.reveal');
@@ -304,8 +359,126 @@
                 }
             });
         }
-        // Trigger once on load
         revealOnScroll();
+
+        // 4. Subtle Interactive Particle Canvas Background (Non-dizzying)
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        const mouse = { x: width / 2, y: height / 2, radius: 150 };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 1.5 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                // Subtle repulsion from cursor
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= (dx / dist) * force * 1.5;
+                    this.y -= (dy / dist) * force * 1.5;
+                }
+            }
+
+            draw() {
+                const isDark = document.documentElement.classList.contains('dark');
+                ctx.fillStyle = isDark ? 'rgba(59, 130, 246, 0.4)' : 'rgba(37, 99, 235, 0.25)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        let particles = [];
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((width * height) / 18000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            const isDark = document.documentElement.classList.contains('dark');
+            const lineColor = isDark ? 'rgba(59, 130, 246, 0.08)' : 'rgba(37, 99, 235, 0.05)';
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        ctx.strokeStyle = lineColor;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // 5. Card Mouse Tracking (Spotlight Effect & 3D Tilt)
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // 3D Magnetic Card Tilt
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -4;
+                const rotateY = ((x - centerX) / centerX) * 4;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        });
     </script>
 </body>
 </html>
