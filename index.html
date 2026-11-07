@@ -31,14 +31,12 @@
             pointer-events: none;
         }
 
-        /* Custom Smooth Glass & 3D Tilt Utilities */
+        /* Custom Smooth Glass & Clean 3D Tilt Utilities (No Warping) */
         .glass-card {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
         .dark .glass-card {
             background: rgba(15, 23, 42, 0.75);
@@ -95,193 +93,187 @@
     <!-- Interactive Subtle Motion Background Canvas -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Ultra-Wide Responsive Main Bento Grid -->
-    <div class="max-w-[1550px] w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6 z-10 relative">
+    <!-- Main Wrapper Container -->
+    <div class="max-w-[1400px] w-full flex flex-col gap-6 z-10 relative">
 
-        <!-- Left Sidebar / Profile & Direct Contact Card -->
-        <div class="lg:col-span-1 glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 flex flex-col justify-between shadow-sm reveal active">
-            <div>
-                <!-- Profile Picture & Name -->
-                <div class="flex items-center space-x-4 lg:flex-col lg:space-x-0 lg:text-center">
-                    <img src="jerwin-casual-profile.png.jfif" alt="Jerwin Paguntalan" class="w-20 h-20 lg:w-28 lg:h-28 rounded-full object-cover border-2 border-blue-500 shadow-md lg:mb-4 transition-transform duration-500 hover:scale-105">
-                    <div>
-                        <h1 class="text-xl font-bold flex items-center justify-start lg:justify-center gap-1.5">
-                            Jerwin Paguntalan 
-                            <i class="fa-solid fa-circle-check text-blue-500 text-sm" title="Verified Professional"></i>
-                        </h1>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">@jerwinpaguntalan</p>
+        <!-- TOP NAVIGATION BAR (Draft Layout Top Section) -->
+        <header class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-4 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm reveal active">
+            
+            <!-- Left: Profile & Info -->
+            <div class="flex items-center gap-4">
+                <img src="jerwin-casual-profile.png.jfif" alt="Jerwin Paguntalan" class="w-14 h-14 rounded-full object-cover border-2 border-blue-500 shadow-md">
+                <div>
+                    <h1 class="text-lg font-bold flex items-center gap-1.5">
+                        Jerwin Paguntalan 
+                        <i class="fa-solid fa-circle-check text-blue-500 text-sm" title="Verified Professional"></i>
+                    </h1>
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
+                        <span>@jerwinpaguntalan</span>
+                        <span>•</span>
+                        <span>Video Editor & Graphic Designer</span>
+                        <span>•</span>
+                        <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-star text-[10px] mr-1"></i>100% Job Success Rate</span>
+                    </div>
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-2 mt-1.5">
+                        <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="text-xs px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition font-medium">[FB]</a>
+                        <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="text-xs px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800 hover:bg-emerald-500 hover:text-white transition font-medium">[Upwork]</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="text-xs px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800 hover:bg-red-500 hover:text-white transition font-medium">[Email]</a>
                     </div>
                 </div>
+            </div>
 
-                <!-- Social Links & Labeled Theme Switcher -->
-                <div class="my-6 space-y-3">
-                    <div class="flex items-center justify-start lg:justify-center gap-2.5">
-                        <a href="https://www.facebook.com/xinpaguntalan/" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition transform hover:scale-110" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                        <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition transform hover:scale-110" title="Upwork Profile"><i class="fa-solid fa-briefcase text-sm"></i></a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition transform hover:scale-110" title="Email Me"><i class="fa-solid fa-envelope text-sm"></i></a>
-                    </div>
-                    
-                    <!-- Labeled Theme Toggle Switch -->
-                    <button id="theme-toggle" class="w-full py-2.5 px-4 rounded-xl bg-blue-50 dark:bg-slate-800/80 text-blue-600 dark:text-amber-400 flex items-center justify-center gap-2 hover:scale-[1.02] transition shadow-sm text-xs font-semibold" title="Toggle Theme">
-                        <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
-                        <span id="theme-text">Dark Mode</span>
-                    </button>
-                </div>
+            <!-- Right: Theme Toggle, Menu Options, Hire Button -->
+            <div class="flex flex-wrap items-center gap-3">
+                <!-- Theme Switcher with Label -->
+                <button id="theme-toggle" class="py-2 px-3 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center gap-2 hover:scale-105 transition shadow-sm text-xs font-semibold">
+                    <i class="fa-solid fa-moon text-sm" id="theme-icon"></i>
+                    <span id="theme-text">Dark Mode</span>
+                </button>
 
-                <!-- Quick Navigation -->
-                <nav class="space-y-1">
-                    <a href="#projects" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 text-sm transition"><i class="fa-solid fa-clapperboard text-red-500 w-5"></i> Video & Graphics</a>
-                    <a href="#testimonials" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 text-sm transition"><i class="fa-solid fa-star text-amber-500 w-5"></i> 5-Star Reviews</a>
-                    <a href="#about" class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 text-sm transition"><i class="fa-solid fa-user w-5"></i> Background</a>
+                <!-- Other Menu Options -->
+                <nav class="hidden sm:flex items-center gap-2 text-xs font-semibold">
+                    <a href="#projects" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Portfolio</a>
+                    <a href="#testimonials" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Reviews</a>
+                    <a href="#about" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Background</a>
                 </nav>
-            </div>
 
-            <!-- Trust Badge Footer -->
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
-                <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 text-xs font-semibold rounded-full">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 100% Upwork Success Rate
-                </span>
-            </div>
-        </div>
-
-        <!-- Main Content Area -->
-        <div class="lg:col-span-4 flex flex-col gap-4 lg:gap-6">
-
-            <!-- HERO HEADER WITH GLOWING CTA -->
-            <div class="glass-card spotlight-card bg-gradient-to-br from-slate-900/90 via-slate-900/95 to-blue-950/90 text-white rounded-3xl p-6 lg:p-10 shadow-xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal">
-                <div class="space-y-3 max-w-2xl relative z-10">
-                    <span class="bg-red-500/20 text-red-300 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block animate-pulse">
-                        Professional Video Editor & Thumbnail Designer
-                    </span>
-                    <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
-                        Crafting High-Retention Videos & High-CTR Thumbnails That Convert.
-                    </h2>
-                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                        Specializing in fast-paced editing, visual storytelling, and YouTube optimization that boosts viewer engagement and CTR from 4% to 12%. Backed by 100% 5-star ratings from international clients.
-                    </p>
-                </div>
-                
-                <!-- Animated Glowing Hire Me Button -->
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="relative z-10 whitespace-nowrap bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 rounded-2xl font-bold text-sm transition transform hover:scale-105 animate-glow flex items-center gap-2 cursor-pointer shadow-lg">
-                    <i class="fa-solid fa-paper-plane"></i> Hire Me Directly
+                <!-- Hire Me Button -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs transition shadow-lg animate-glow">
+                    Hire Me Button
                 </a>
             </div>
 
-            <!-- Software & Tools Stack Bar -->
-            <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-4 shadow-sm flex items-center gap-4 overflow-x-auto no-scrollbar reveal">
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 whitespace-nowrap px-2">Creative Stack</span>
-                <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-video text-red-500"></i> Premiere Pro & After Effects</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-palette text-blue-500"></i> Photoshop & Canva</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-amber-500"></i> YouTube SEO & Thumbnails</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-headset text-emerald-500"></i> VA & Admin (Bonus)</span>
+        </header>
+
+        <!-- PAGE 1: IMMEDIATE OUTPUT SHOWCASE (Side-by-Side Flat Glass Cards) -->
+        <section id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+            
+            <!-- Video Editing Reel Showcase Card -->
+            <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400 px-3 py-1 rounded-full">Core Service 01</span>
+                        <i class="fa-solid fa-clapperboard text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">MY VIDEO REEL SHOWCASE</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Flat, Clean 3D Glass - No Warp. High-retention cinematic cuts and short-form reels designed to captivate your audience immediately.</p>
                 </div>
+                <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-52 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
+                        <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg mb-1.5 transform group-hover:scale-110 transition"><i class="fa-solid fa-play ml-0.5"></i></div>
+                        <span class="text-xs font-bold tracking-wide uppercase">Watch Video Portfolio</span>
+                    </div>
+                </button>
             </div>
 
-            <!-- Bento Projects Grid -->
-            <div id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-                
-                <!-- Video Editing Card -->
-                <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider bg-red-100 text-red-600 dark:bg-red-950/50 dark:text-red-400 px-3 py-1 rounded-full">Core Service 01</span>
-                            <i class="fa-solid fa-clapperboard text-red-500"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Video Editing & Reels</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Cinematic cuts, short-form TikToks/Reels, YouTube videos, and dynamic promotional edits engineered for high viewer retention.</p>
+            <!-- Graphic Design & Thumbnails Showcase Card -->
+            <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 px-3 py-1 rounded-full">Core Service 02</span>
+                        <i class="fa-solid fa-palette text-purple-500"></i>
                     </div>
-                    <button onclick="openModal('videoModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-inner">
-                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Reel" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
-                            <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg mb-1.5 transform group-hover:scale-110 transition"><i class="fa-solid fa-play ml-0.5"></i></div>
-                            <span class="text-xs font-bold tracking-wide uppercase">Watch Video Portfolio</span>
-                        </div>
-                    </button>
+                    <h3 class="text-xl font-bold mb-2">GRAPHIC DESIGN & THUMBNAILS</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Thumbnails & Visual Branding. High-CTR visual assets engineered to boost click-through rates and brand presence.</p>
                 </div>
-
-                <!-- Graphic Design & Thumbnails Card -->
-                <div class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between reveal">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-600 dark:bg-purple-950/50 dark:text-purple-400 px-3 py-1 rounded-full">Core Service 02</span>
-                            <i class="fa-solid fa-palette text-purple-500"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Graphic Design & Thumbnails</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">High-CTR YouTube thumbnails, digital branding, social media graphics, and original marketing assets that drive clicks.</p>
+                <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-52 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-lg mb-1.5 transform group-hover:scale-110 transition"><i class="fa-solid fa-images"></i></div>
+                        <span class="text-xs font-bold tracking-wide uppercase">View Graphic Showcase</span>
                     </div>
-                    <button onclick="openModal('graphicsModal')" class="w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 h-48 flex items-center justify-center relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-inner">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white p-2 text-center transition-opacity duration-300">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-lg mb-1.5 transform group-hover:scale-110 transition"><i class="fa-solid fa-images"></i></div>
-                            <span class="text-xs font-bold tracking-wide uppercase">View Graphic Showcase</span>
-                        </div>
-                    </button>
-                </div>
-
+                </button>
             </div>
 
-            <!-- Upwork Testimonials Wall -->
-            <div id="testimonials" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 lg:p-8 shadow-sm reveal">
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 px-3 py-1 rounded-full">Client Feedback</span>
-                        <h3 class="text-2xl font-bold mt-2">100% 5-Star Upwork Reviews</h3>
-                    </div>
-                    <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="text-sm font-semibold text-blue-500 hover:underline hidden sm:block">View Upwork Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
-                </div>
+        </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2">
-                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
-                        <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Alexander Riedel</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did an incredible job with my YouTube thumbnails and SEO! CTR jumped from 4-5% to an impressive 10-12%!"</p>
-                    </div>
-                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
-                        <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Henry Gorst</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin may be the best hire I've made since starting on Upwork, he captured exactly what I wanted, edited it PERFECTLY & delivered exceptionally quickly."</p>
-                    </div>
-                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
-                        <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Anna Dimitrius</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin went above and beyond with delivering on this project. He is a very talented designer and his work is very original."</p>
-                    </div>
-                    <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
-                        <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Jim Liao</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
-                        <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"It is clear upon working with him that Jerwin is a seasoned thumbnail editor with a clear understanding of the collaborative process."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Background / BPO Section -->
-            <div id="about" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm reveal">
-                <div class="flex items-center justify-between mb-4">
-                    <span class="text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-3 py-1 rounded-full">Bonus Skillset</span>
-                    <i class="fa-solid fa-headset text-slate-400"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-2">3 Years BPO Experience & Virtual Assistance</h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                    While video editing and graphic design are my core focus, my 3 years of high-volume BPO customer support experience equips me with exceptional communication, quick turnaround times, problem-solving, and administrative reliability when working with international teams.
+        <!-- PAGE 2: VALUE PROP, HEADLINE & DIRECT CONVERSION SECTION -->
+        <section class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-8 lg:p-10 shadow-sm reveal space-y-6">
+            
+            <div class="max-w-3xl space-y-3">
+                <span class="bg-red-500/20 text-red-500 dark:text-red-300 border border-red-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-block">
+                    Professional Video Editor & Thumbnail Designer
+                </span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+                    Crafting High-Retention Videos & High-CTR Thumbnails That Convert.
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
+                    Specializing in fast-paced editing, visual storytelling, and YouTube optimization that boosts viewer engagement and CTR from 4% to 12%. Backed by 100% 5-star ratings from international clients.
                 </p>
             </div>
 
-        </div>
+            <!-- BPO & Virtual Assistant Experience Banner -->
+            <div id="about" class="p-5 bg-slate-50/80 dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-2 mb-1">
+                        <i class="fa-solid fa-headset text-blue-500"></i> BPO & Virtual Assistant Experience
+                    </h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Efficient Communication & Workflow Management. Trained for enterprise-level operations and autonomous deliverables.</p>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400 whitespace-nowrap">3+ Years Experience</span>
+            </div>
+
+            <!-- Call to Action Box -->
+            <div class="bg-gradient-to-r from-blue-900/30 via-slate-900/50 to-blue-950/40 border border-blue-500/30 rounded-2xl p-6 text-center shadow-inner">
+                <h3 class="text-xl font-bold mb-2">LET'S ELEVATE YOUR CONTENT TOGETHER</h3>
+                <p class="text-xs text-slate-400 mb-4">Ready to start your project or need a Creative VA? Drop me a direct message.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jerwinpaguntalan@gmail.com&su=Project%20Inquiry%20from%20Portfolio" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-xl font-bold text-xs transition shadow-lg">
+                    <i class="fa-solid fa-envelope"></i> Email Me: jerwinpaguntalan@gmail.com
+                </a>
+            </div>
+
+        </section>
+
+        <!-- PAGE 3: 100% 5-STAR UPWORK REVIEWS WALL -->
+        <section id="testimonials" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 lg:p-8 shadow-sm reveal">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-600 dark:bg-amber-950/50 dark:text-amber-400 px-3 py-1 rounded-full">Client Feedback</span>
+                    <h3 class="text-2xl font-bold mt-2">100% 5-Star Upwork Reviews</h3>
+                </div>
+                <a href="https://www.upwork.com/freelancers/~01ec2c64aa358c0f21?mp_source=share" target="_blank" class="text-sm font-semibold text-blue-500 hover:underline hidden sm:block">View Upwork Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
+                    <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Alexander Riedel</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin did an incredible job with my YouTube thumbnails and SEO! CTR jumped from 4-5% to an impressive 10-12%!"</p>
+                </div>
+                <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
+                    <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Henry Gorst</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin may be the best hire I've made since starting on Upwork, he captured exactly what I wanted, edited it PERFECTLY & delivered exceptionally quickly."</p>
+                </div>
+                <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
+                    <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Anna Dimitrius</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"Jerwin went above and beyond with delivering on this project. He is a very talented designer and his work is very original."</p>
+                </div>
+                <div class="p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/50 transition">
+                    <div class="flex items-center justify-between mb-2"><span class="font-bold text-sm">Jim Liao</span><div class="text-amber-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed italic">"It is clear upon working with him that Jerwin is a seasoned thumbnail editor with a clear understanding of the collaborative process."</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <!-- Video Modal with Smooth Scale Animation -->
+    <!-- Video Modal -->
     <div id="videoModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all duration-300">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative transform scale-95 transition-transform duration-300" id="videoModalBox">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-bold">🎬 Video Editing Portfolio</h3>
                 <button onclick="closeModal('videoModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="rounded-2xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center relative">
+            <div class="rounded-2xl overflow-hidden bg-slate-900 aspect-video flex items-center justify-center">
                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Sample" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Graphics Modal with Smooth Scale Animation -->
+    <!-- Graphics Modal -->
     <div id="graphicsModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all duration-300">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative transform scale-95 transition-transform duration-300" id="graphicsModalBox">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-3xl w-full p-6 shadow-2xl relative">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-xl font-bold">🎨 Graphic Design & Thumbnails</h3>
                 <button onclick="closeModal('graphicsModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition"><i class="fa-solid fa-xmark"></i></button>
@@ -335,11 +327,7 @@
 
         // 2. Modal Open/Close
         function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.add('opacity-100');
-            }, 10);
+            document.getElementById(modalId).classList.remove('hidden');
         }
 
         function closeModal(modalId) {
@@ -361,7 +349,7 @@
         }
         revealOnScroll();
 
-        // 4. Subtle Interactive Particle Canvas Background (Non-dizzying)
+        // 4. Subtle Interactive Particle Canvas Background
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -396,7 +384,6 @@
                 if (this.x < 0 || this.x > width) this.vx *= -1;
                 if (this.y < 0 || this.y > height) this.vy *= -1;
 
-                // Subtle repulsion from cursor
                 const dx = mouse.x - this.x;
                 const dy = mouse.y - this.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
@@ -455,7 +442,7 @@
         }
         animateCanvas();
 
-        // 5. Card Mouse Tracking (Spotlight Effect & 3D Tilt)
+        // 5. Card Mouse Tracking (Spotlight Effect)
         const cards = document.querySelectorAll('.glass-card');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -465,18 +452,6 @@
 
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
-
-                // 3D Magnetic Card Tilt
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -4;
-                const rotateY = ((x - centerX) / centerX) * 4;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
             });
         });
     </script>
