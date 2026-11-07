@@ -77,9 +77,9 @@
         }
 
         @keyframes radarPulse {
-            0% { transform: scale(0.95); boxShadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); boxShadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); boxShadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
         .radar-dot {
             animation: radarPulse 2s infinite;
@@ -113,7 +113,7 @@
         <!-- TOP NAVIGATION BAR -->
         <header class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm reveal active">
             
-            <!-- Left: Profile & Live Telemetry Badge -->
+            <!-- Left: Profile & Live Telemetry Badge (Fully Restored Details) -->
             <div class="flex items-center gap-4 text-center md:text-left flex-col md:flex-row w-full md:w-auto">
                 <div class="relative">
                     <img src="jerwin-casual-profile.png.jfif" alt="Jerwin Paguntalan" class="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md">
@@ -126,11 +126,18 @@
                         <i class="fa-solid fa-circle-check text-blue-500 text-sm" title="Verified Professional"></i>
                     </h1>
                     <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
-                        <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span> Active Now / Ready for Work
+                        <span>@jerwinpaguntalan</span>
+                        <span>•</span>
+                        <span>Video Editor & Graphic Designer</span>
+                        <span>•</span>
+                        <span class="text-emerald-500 font-semibold"><i class="fa-solid fa-star text-[10px] mr-1"></i>100% Job Success Rate</span>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-[11px] text-slate-400 dark:text-slate-400 mt-0.5">
+                        <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span> Active Now / Ready for Work
                         </span>
                         <span>•</span>
-                        <span id="local-time" class="font-mono text-slate-600 dark:text-slate-300">--:-- AM (PH Time)</span>
+                        <span id="local-time" class="font-mono">--:-- AM (PH Time)</span>
                     </div>
                     <!-- Social Icons & Quick Copy Email -->
                     <div class="flex items-center justify-center md:justify-start gap-3 mt-2">
@@ -141,7 +148,7 @@
                 </div>
             </div>
 
-            <!-- Right: Theme Toggle, Filter Tabs, Hire Button -->
+            <!-- Right: Theme Toggle, Menu Options, Hire Button -->
             <div class="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
                 <!-- Theme Switcher with Label -->
                 <button id="theme-toggle" class="py-2 px-3 rounded-xl bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-amber-400 flex items-center gap-2 hover:scale-105 transition shadow-sm text-xs font-semibold cursor-pointer">
@@ -152,6 +159,7 @@
                 <!-- Menu Navigation -->
                 <nav class="hidden sm:flex items-center gap-1 text-xs font-semibold">
                     <a href="#projects" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Portfolio</a>
+                    <a href="#ai-faq" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">AI FAQ</a>
                     <a href="#testimonials" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Reviews</a>
                     <a href="#about" class="px-3 py-2 rounded-xl hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">Background</a>
                 </nav>
@@ -164,7 +172,7 @@
 
         </header>
 
-        <!-- PORTFOLIO CATEGORY FILTER TABS (Super Techy Feature) -->
+        <!-- PORTFOLIO CATEGORY FILTER TABS -->
         <div class="flex items-center justify-center gap-2 my-1 reveal">
             <button onclick="filterProjects('all')" id="btn-all" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-md transition cursor-pointer">All Works</button>
             <button onclick="filterProjects('video')" id="btn-video" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition cursor-pointer">🎬 Video Editing</button>
@@ -174,7 +182,7 @@
         <!-- PAGE 1: ENLARGED IMMEDIATE OUTPUT SHOWCASE -->
         <section id="projects" class="grid grid-cols-1 lg:grid-cols-2 gap-6 reveal">
             
-            <!-- Video Editing Reel Showcase Card (Filterable) -->
+            <!-- Video Editing Reel Showcase Card -->
             <div data-category="video" class="project-card glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -193,7 +201,7 @@
                 </button>
             </div>
 
-            <!-- Graphic Design & Thumbnails Showcase Card (Filterable) -->
+            <!-- Graphic Design & Thumbnails Showcase Card -->
             <div data-category="graphics" class="project-card glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -214,7 +222,41 @@
 
         </section>
 
-        <!-- PAGE 2: VALUE PROP, HEADLINE & DIRECT CONVERSION SECTION -->
+        <!-- PAGE 2: AI-POWERED FAQ / ASSISTANT WIDGET (New Feature) -->
+        <section id="ai-faq" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-sm reveal space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 px-3.5 py-1.5 rounded-full">Interactive Assistant</span>
+                    <h3 class="text-xl sm:text-2xl font-bold mt-2">🤖 Ask Jerwin's AI Portfolio Assistant</h3>
+                </div>
+                <span class="text-xs text-slate-400 font-mono hidden sm:inline-block">Instant Answers 24/7</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Have a quick question about turnaround time, rates, or software? Select a common question below or type your inquiry!</p>
+
+            <!-- AI Search Input Bar -->
+            <div class="relative">
+                <input type="text" id="ai-search-input" onkeyup="handleAiSearch(event)" placeholder="Type a question (e.g., 'What is your turnaround time?' or 'Software')..." class="w-full py-3.5 pl-4 pr-12 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:border-blue-500 shadow-inner">
+                <button onclick="executeAiSearch()" class="absolute right-2 top-2 bottom-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition shadow cursor-pointer">Ask AI</button>
+            </div>
+
+            <!-- Common Quick FAQ Chips -->
+            <div class="flex flex-wrap gap-2 pt-1">
+                <button onclick="askAiQuestion('turnaround')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition font-medium cursor-pointer">⚡ What is your turnaround time?</button>
+                <button onclick="askAiQuestion('software')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition font-medium cursor-pointer">💻 What software do you use?</button>
+                <button onclick="askAiQuestion('bpo')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition font-medium cursor-pointer">🎧 Tell me about your BPO/VA experience</button>
+                <button onclick="askAiQuestion('rates')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition font-medium cursor-pointer">💰 What are your rates or project terms?</button>
+            </div>
+
+            <!-- AI Output Box -->
+            <div id="ai-response-box" class="p-4 rounded-2xl bg-blue-50/80 dark:bg-blue-950/40 border border-blue-500/30 text-xs sm:text-sm text-slate-700 dark:text-slate-200 hidden leading-relaxed">
+                <div class="flex items-center gap-2 font-bold text-blue-600 dark:text-blue-400 mb-1">
+                    <i class="fa-solid fa-robot"></i> Jerwin's AI Assistant:
+                </div>
+                <p id="ai-response-text"></p>
+            </div>
+        </section>
+
+        <!-- PAGE 3: VALUE PROP & DIRECT CONVERSION SECTION -->
         <section class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-sm reveal space-y-6">
             
             <div class="max-w-3xl space-y-3">
@@ -256,7 +298,7 @@
 
         </section>
 
-        <!-- PAGE 3: 100% 5-STAR UPWORK REVIEWS WALL -->
+        <!-- PAGE 4: 100% 5-STAR UPWORK REVIEWS WALL -->
         <section id="testimonials" class="glass-card spotlight-card border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-sm reveal">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
                 <div>
@@ -389,7 +431,53 @@
         setInterval(updateLocalTime, 1000);
         updateLocalTime();
 
-        // 2. Clipboard Copy Toast Functionality
+        // 2. AI FAQ Knowledge Base Engine
+        const knowledgeBase = [
+            { keywords: ['turnaround', 'fast', 'time', 'speed', 'delivery', 'hours', 'days'], answer: "Jerwin typically delivers projects within 24 to 48 hours depending on scope, ensuring quick turnarounds without sacrificing quality (backed by fast review revisions on Upwork)." },
+            { keywords: ['software', 'tool', 'premiere', 'after effects', 'photoshop', 'canva', 'edit'], answer: "Jerwin's core creative stack includes Adobe Premiere Pro & After Effects for high-retention video editing, alongside Photoshop & Canva for high-CTR thumbnail design and visual branding." },
+            { keywords: ['bpo', 'va', 'virtual assistant', 'communication', 'support', 'experience'], answer: "Jerwin has 3+ years of professional BPO telecommunications client support experience, giving him enterprise-grade English communication skills, independent workflow management, and zero timezone friction." },
+            { keywords: ['rate', 'price', 'cost', 'budget', 'hire', 'term', 'payment'], answer: "Jerwin operates with flexible project terms and direct contracts. You can click 'Hire Me Now' or copy his email to discuss custom project pricing and retainers directly." }
+        ];
+
+        function askAiQuestion(topic) {
+            let response = "";
+            if (topic === 'turnaround') response = knowledgeBase[0].answer;
+            else if (topic === 'software') response = knowledgeBase[1].answer;
+            else if (topic === 'bpo') response = knowledgeBase[2].answer;
+            else if (topic === 'rates') response = knowledgeBase[3].answer;
+            
+            showAiOutput(response);
+        }
+
+        function handleAiSearch(e) {
+            if (e.key === 'Enter') {
+                executeAiSearch();
+            }
+        }
+
+        function executeAiSearch() {
+            const query = document.getElementById('ai-search-input').value.toLowerCase().trim();
+            if (!query) return;
+
+            let matchedAnswer = "That's a great question! While my AI assistant is matching keywords, you can email Jerwin directly at jerwinpaguntalan@gmail.com for an immediate custom response.";
+            
+            for (let item of knowledgeBase) {
+                if (item.keywords.some(kw => query.includes(kw))) {
+                    matchedAnswer = item.answer;
+                    break;
+                }
+            }
+            showAiOutput(matchedAnswer);
+        }
+
+        function showAiOutput(text) {
+            const box = document.getElementById('ai-response-box');
+            const txt = document.getElementById('ai-response-text');
+            txt.textContent = text;
+            box.classList.remove('hidden');
+        }
+
+        // 3. Clipboard Copy Toast Functionality
         function copyEmail() {
             navigator.clipboard.writeText('jerwinpaguntalan@gmail.com');
             const toast = document.getElementById('toast');
@@ -399,14 +487,13 @@
             }, 3000);
         }
 
-        // 3. Project Filter Tabs
+        // 4. Project Filter Tabs
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const btnAll = document.getElementById('btn-all');
             const btnVideo = document.getElementById('btn-video');
             const btnGraphics = document.getElementById('btn-graphics');
 
-            // Reset buttons
             [btnAll, btnVideo, btnGraphics].forEach(b => {
                 b.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition cursor-pointer";
             });
@@ -429,7 +516,7 @@
             }
         }
 
-        // 4. Theme Toggle Functionality with Labeled State Switch
+        // 5. Theme Toggle Functionality with Labeled State Switch
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -463,7 +550,7 @@
             updateThemeUI(isDarkNow);
         });
 
-        // 5. Modal Open/Close
+        // 6. Modal Open/Close
         function openModal(modalId) {
             document.getElementById(modalId).classList.remove('hidden');
         }
@@ -472,7 +559,7 @@
             document.getElementById(modalId).classList.add('hidden');
         }
 
-        // 6. Scroll Reveal Animation Trigger
+        // 7. Scroll Reveal Animation Trigger
         window.addEventListener('scroll', revealOnScroll);
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.reveal');
@@ -487,7 +574,7 @@
         }
         revealOnScroll();
 
-        // 7. Subtle Interactive Particle Canvas Background
+        // 8. Subtle Interactive Particle Canvas Background
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -580,7 +667,7 @@
         }
         animateCanvas();
 
-        // 8. Card Mouse Tracking (Spotlight Effect)
+        // 9. Card Mouse Tracking (Spotlight Effect)
         const cards = document.querySelectorAll('.glass-card');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
