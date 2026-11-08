@@ -361,31 +361,54 @@
         </div>
     </div>
 
-   <!-- === START OF HIRE ME INQUIRY MODAL === -->
+   <!-- === START OF SMART HIRE ME INQUIRY MODAL === -->
 <div id="inquiryModal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-all duration-300">
     <div class="glass-card border border-slate-200 dark:border-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
         <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-bold">🚀 Direct Project Inquiry</h3>
             <button onclick="closeModal('inquiryModal')" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-red-500 hover:text-white transition cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Select what you need help with, and it will instantly open your email app pre-filled!</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Select what you need help with to open your email:</p>
         <div class="space-y-2.5">
-            <a href="mailto:jerwinpaguntalan@gmail.com?subject=Inquiry:%20Video%20Editing%20Project" class="block w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition text-xs font-bold text-left flex items-center justify-between cursor-pointer">
+            <button onclick="sendSmartEmail('Inquiry: Video Editing Project')" class="w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white transition text-xs font-bold text-left flex items-center justify-between cursor-pointer">
                 <span>🎬 Video Editing & Reels</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="mailto:jerwinpaguntalan@gmail.com?subject=Inquiry:%20Graphic%20Design%20%26%20Thumbnails" class="block w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-purple-600 hover:text-white transition text-xs font-bold text-left flex items-center justify-between cursor-pointer">
+            </button>
+            <button onclick="sendSmartEmail('Inquiry: Graphic Design & Thumbnails')" class="w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-purple-600 hover:text-white transition text-xs font-bold text-left flex items-center justify-between cursor-pointer">
                 <span>🎨 Graphic Design & Thumbnails</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="mailto:jerwinpaguntalan@gmail.com?subject=Inquiry:%20Virtual%20Assistant%20Services" class="block w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white transition text-xs font-bold text-left flex items-center justify-between cursor-pointer">
+            </button>
+            <button onclick="sendSmartEmail('Inquiry: Virtual Assistant Services')" class="w-full p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white transition text-xs font-bold text-left flex items-center justify-between cursor-pointer">
                 <span>⚡ Virtual Assistant & BPO Support</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            </button>
         </div>
     </div>
 </div>
 <!-- === END OF HIRE ME INQUIRY MODAL === -->
+
+<!-- Smart Device Email Router Script (Place right above your closing </body> tag) -->
+<script>
+    function sendSmartEmail(subjectText) {
+        const email = "jerwinpaguntalan@gmail.com";
+        const encodedSubject = encodeURIComponent(subjectText);
+        
+        // Detect if user is on mobile/tablet vs desktop PC
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            // Forces mobile devices (phones/tablets) to open their local email app
+            window.location.href = `mailto:${email}?subject=${encodedSubject}`;
+        } else {
+            // For PC/Desktop browsers: opens cleanly in the browser without breaking your page
+            const webMailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodedSubject}`;
+            window.location.href = webMailUrl;
+        }
+        
+        // Close modal after triggering
+        closeModal('inquiryModal');
+    }
+</script>
 
     <!-- Animation & Interactive Scripts -->
     <script>
